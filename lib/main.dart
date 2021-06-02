@@ -1,18 +1,26 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:githelp/constant.dart';
+import 'package:githelp/screen/home/home.dart';
+
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Git Help',
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
-      ),
+          scaffoldBackgroundColor: kBackgroundColor,
+          fontFamily: "Poppins",
+          textTheme: TextTheme(
+            body1: TextStyle(color: kBodyTextColor),
+          )),
       home: MyHomePage(title: 'Git Helper for Beginners'),
     );
   }
@@ -26,19 +34,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  void initState() {
+    super.initState();
+    Timer(
+        Duration(seconds: 5),
+            () => Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Home())));
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Loading Screen',
-            ),
-          ],
-        ),
-      ),// This trailing comma makes auto-formatting nicer for build methods.
-    );
+    return Scaffold();
   }
 }
