@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:githelp/screen/guide/guide.dart';
 
 import '../../constant.dart';
 
@@ -8,11 +9,13 @@ class CardView extends StatelessWidget {
   final String image;
   final String title;
   final String text;
+  final Widget widget;
   const CardView({
     Key key,
     this.image,
     this.title,
     this.text,
+    this.widget
   }) : super(key: key);
 
   @override
@@ -34,7 +37,7 @@ class CardView extends StatelessWidget {
                   BoxShadow(
                     offset: Offset(0, 8),
                     blurRadius: 24,
-                    color: kShadowColor,
+                    color: Colors.black38,
                   ),
                 ],
               ),
@@ -42,31 +45,39 @@ class CardView extends StatelessWidget {
             Image.asset(image,width: 160.0,),
             Positioned(
               left: 130,
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                height: 136,
-                width: MediaQuery.of(context).size.width - 170,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      title,
-                      style: kTitleTextstyle.copyWith(
-                        fontSize: 16,
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        text,
-                        maxLines: 4,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 12,
+              child: InkWell(
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => (widget)),
+                  );
+                },
+                child :Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  height: 136,
+                  width: MediaQuery.of(context).size.width - 170,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        title,
+                        style: kTitleTextstyle.copyWith(
+                          fontSize: 16,
                         ),
                       ),
-                    ),
-                  ],
+                      Expanded(
+                        child: Text(
+                          text,
+                          maxLines: 4,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

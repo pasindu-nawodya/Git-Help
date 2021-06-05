@@ -7,8 +7,11 @@ class MyHeader extends StatefulWidget {
   final String textTop;
   final String textBottom;
   final double offset;
+  final double heights;
+  final double topVal;
+  final double leftVal;
   const MyHeader(
-      {Key key, this.image, this.textTop, this.textBottom, this.offset})
+      {Key key, this.image, this.textTop, this.textBottom, this.offset, this.heights, this.topVal, this.leftVal})
       : super(key: key);
 
   @override
@@ -22,7 +25,7 @@ class _MyHeaderState extends State<MyHeader> {
       clipper: MyClipper(),
       child: Container(
         padding: EdgeInsets.only(left: 40, top: 50, right: 20),
-        height: 350,
+        height: widget.heights,
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -50,8 +53,8 @@ class _MyHeaderState extends State<MyHeader> {
                     ),
                   ),
                   Positioned(
-                    top: 80.0,
-                    left: 10,
+                    top: widget.topVal,
+                    left: widget.leftVal,
                     child: Text(
                       "${widget.textTop} \n${widget.textBottom}",
                       style: kHeadingTextStyle.copyWith(
