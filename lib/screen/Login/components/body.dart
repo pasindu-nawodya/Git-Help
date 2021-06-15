@@ -7,6 +7,7 @@ import 'package:githelp/component/rounded_button.dart';
 import 'package:githelp/component/rounded_input_field.dart';
 import 'package:githelp/component/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:githelp/screen/home/home.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -45,7 +46,7 @@ class Body extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return ProfileScreen();
+                      return Home();
                     },
                   ),
                 );

@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:githelp/screen/Login/login_screen.dart';
 import 'package:githelp/screen/Signup/components/background.dart';
@@ -8,6 +9,7 @@ import 'package:githelp/component/rounded_button.dart';
 import 'package:githelp/component/rounded_input_field.dart';
 import 'package:githelp/component/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:githelp/screen/home/home.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 
@@ -62,9 +64,16 @@ class _BodyState extends State<Body> {
           );
         });
   }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    onPressedSignUp(){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => (Home())),
+      );
+    }
     return Background(
       child:Form(
         //key: _formKey,
@@ -100,7 +109,12 @@ class _BodyState extends State<Body> {
             ),
             RoundedButton(
               text: "SIGNUP",
-              press: addPost,
+              press: () {
+                //please add your implementation to below method
+                // it is define in top of the class
+                //pasindu
+                onPressedSignUp();
+              },
             ),
             SizedBox(height: size.height * 0.03),
             AlreadyHaveAnAccountCheck(
