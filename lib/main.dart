@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:githelp/constant.dart';
 import 'package:githelp/screen/home/home.dart';
