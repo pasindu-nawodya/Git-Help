@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:githelp/component/header/header.dart';
-import 'package:githelp/screen/guide/guide.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import './AnswerManager.dart';
 
 class GiveAnswer extends StatefulWidget {
   const GiveAnswer({Key key}) : super(key: key);
@@ -13,21 +13,17 @@ class GiveAnswer extends StatefulWidget {
 class _GiveAnswerState extends State<GiveAnswer> {
 
   final controller = ScrollController();
-  String _topic, _desc, _step, _command;
-  CollectionReference post = FirebaseFirestore.instance.collection('post');
+  String _answer;
+  CollectionReference answer = FirebaseFirestore.instance.collection('answer');
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  Future<void> addUser() {
+  Future<void> addSolution() {
     // Call the user's CollectionReference to add a new user
-    return post
-        .add({
-      'topic': _topic,
-      'description': _desc,
-      'step': _step ,
-      'command' : _command
+    return answer.add({
+      'answer': _answer,
     })
-        .then((value) => print("Post Added"))
+        .then((value) => print("Answer Published"))
         .catchError((error) => print(error));
   }
 
@@ -63,7 +59,7 @@ class _GiveAnswerState extends State<GiveAnswer> {
               MyHeader(
                 image: "",
                 textTop: "",
-                textBottom: "Share Your Knowledge",
+                textBottom: "Post your solutions",
                 offset: 10.0,
                 heights: 250.0,
                 topVal: 0.0,
@@ -80,44 +76,12 @@ class _GiveAnswerState extends State<GiveAnswer> {
                         key: _formKey,
                         child: Column(
                           children: <Widget>[
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Container(
-                                child: Text(
-                                  "Add Topic :",
-                                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0,),
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 15.0,),
-                            Container(
-                              child: TextFormField(
-                                // ignore: missing_return
-                                validator: (input) {
-                                  if (input.isEmpty) return 'Enter Topic';
-                                },
-                                onChanged: (String val){
-                                  setState(() {
-                                    _topic = val;
-                                  });
-                                },
-                                decoration: InputDecoration(
-                                    labelText: 'Topic',
-                                    border: new OutlineInputBorder(
-                                        borderSide: new BorderSide(color: Colors.teal)),
-                                    prefixIcon: Icon(Icons.topic)),
-                                onSaved: (input) => _topic = input,
-                                minLines: 2,
-                                keyboardType: TextInputType.multiline,
-                                maxLines: null,
-                              ),
-                            ),
                             SizedBox(height: 30.0,),
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Container(
                                 child: Text(
-                                  "Add Description :",
+                                  "Provide Solution :",
                                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0,),
                                 ),
                               ),
@@ -127,87 +91,22 @@ class _GiveAnswerState extends State<GiveAnswer> {
                               child: TextFormField(
                                 // ignore: missing_return
                                 validator: (input) {
-                                  if (input.isEmpty) return 'Enter Description';
+                                  if (input.isEmpty) return 'Enter Solution';
                                 },
                                 onChanged: (String val){
                                   setState(() {
-                                    _desc = val;
+                                    _answer = val;
                                   });
                                 },
                                 decoration: InputDecoration(
-                                    labelText: 'Description',
+                                    labelText: 'Soltion',
                                     border: new OutlineInputBorder(
                                         borderSide: new BorderSide(color: Colors.teal)),
                                     prefixIcon: Icon(Icons.description)),
-                                onSaved: (input) => _desc = input,
+                                onSaved: (input) => _answer = input,
                                 minLines: 6,
                                 keyboardType: TextInputType.multiline,
                                 maxLines: null,
-                              ),
-                            ),
-                            SizedBox(height: 30),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Container(
-                                child: Text(
-                                  "Add Steps :",
-                                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0,),
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 15.0,),
-                            Container(
-                              child: TextFormField(
-                                // ignore: missing_return
-                                validator: (input) {
-                                  if (input.isEmpty)
-                                    return 'Add Steps';
-                                },
-                                onChanged: (String val){
-                                  setState(() {
-                                    _step = val;
-                                  });
-                                },
-                                decoration: InputDecoration(
-                                    labelText: 'Separate steps by coma \n Ex: Step 1, Step 2, Step 3',
-                                    border: new OutlineInputBorder(
-                                        borderSide: new BorderSide(color: Colors.teal)),
-                                    prefixIcon: Icon(Icons.account_tree_rounded)),
-                                onSaved: (input) => _step = input,
-                                minLines: 3,
-                                keyboardType: TextInputType.multiline,
-                                maxLines: null,
-                              ),
-                            ),
-                            SizedBox(height: 30),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Container(
-                                child: Text(
-                                  "Command :",
-                                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0,),
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 15.0,),
-                            Container(
-                              child: TextFormField(
-                                // ignore: missing_return
-                                validator: (input) {
-                                  if (input.isEmpty)
-                                    return 'Add command';
-                                },
-                                onChanged: (String val){
-                                  setState(() {
-                                    _command = val;
-                                  });
-                                },
-                                decoration: InputDecoration(
-                                    labelText: 'Command',
-                                    border: new OutlineInputBorder(
-                                        borderSide: new BorderSide(color: Colors.teal)),
-                                    prefixIcon: Icon(Icons.comment_bank)),
-                                onSaved: (input) => _command = input,
                               ),
                             ),
                             SizedBox(
@@ -215,11 +114,11 @@ class _GiveAnswerState extends State<GiveAnswer> {
                             ),
                             // ignore: deprecated_member_use
                             RaisedButton(
-                              onPressed: addUser,
+                              onPressed: addSolution,
                               padding: EdgeInsets.only(
                                   right: 80.0, left: 80.0, top: 10.0, bottom: 10.0),
                               child: Text(
-                                'Submit',
+                                'PUBLISH',
                                 style: TextStyle(
                                     fontSize: 20.0,
                                     fontWeight: FontWeight.bold,
@@ -234,7 +133,7 @@ class _GiveAnswerState extends State<GiveAnswer> {
                               onPressed: (){
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => (GuideList())),
+                                  MaterialPageRoute(builder: (context) => (AnswerManager())),
                                 );
                               },
                               padding: EdgeInsets.only(

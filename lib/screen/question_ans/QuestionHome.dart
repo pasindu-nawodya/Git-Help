@@ -10,7 +10,7 @@ import './widgets/AskQuestionDialogWidget.dart';
 import 'package:provider/provider.dart';
 import '../../provider/Questions.dart';
 import './Question.dart';
-import './AnswerHome.dart';
+import './AnswerManager.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class QuestionHome extends StatefulWidget {
@@ -30,11 +30,9 @@ class _QuestionState extends State<QuestionHome> {
 
   Map<String,dynamic> dataList;
   List<String> question = [];
-  List<String> answer = [];
   List<String> ids = [];
   int count = 0;
   bool loading = true;
-  String currentQuestion;
 
   loadData() async{
     firestoreInstance.collection("question").get().then((querySnapshot) {
@@ -43,7 +41,6 @@ class _QuestionState extends State<QuestionHome> {
         setState(() {
           dataList = result.data();
           question.add(dataList['question']);
-          answer.add(dataList['']);
           count++;
         });
       });
@@ -60,9 +57,9 @@ class _QuestionState extends State<QuestionHome> {
   }
 
   //-----------------------------------------------------------------------------------------------------
-  // <summary> Delete Question </summary>
+  // <summary> Delete Question </summary>                         // NEED TO FIND THE ID / STRING OF SELECTING CARD
   deleteQuestion() async{
-    await firestoreInstance.collection("question").where("question",isEqualTo : question.toString()).get().then((value){
+    await firestoreInstance.collection("question").where("question",isEqualTo : "What is GitHub ?").get().then((value){
       value.docs.forEach((element) {
         FirebaseFirestore.instance.collection("question").doc(element.id).delete().then((value){
           print("Question Removed");
@@ -124,6 +121,7 @@ class _QuestionState extends State<QuestionHome> {
                                 number: index+1,
                                 titles: question[index].toString(),
                                 id: "1",
+                                widget: AnswerManager(),
                               ),
                             )
                         );
@@ -131,9 +129,41 @@ class _QuestionState extends State<QuestionHome> {
                 ],
               ),
             ),
+            SizedBox(height: 30),
+            Align(
+                alignment: Alignment(0.9, 0.5),
+                child: Row(
+                  children: <Widget>[
+                    SizedBox(width: 230.0,),
+                    FloatingActionButton(
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => (AskQuestion())),
+                        );
+                      },
+                      backgroundColor: Colors.indigo,
+                      child: const Icon(Icons.add),
+                    ),
+                    SizedBox(width: 10.0,),
+                    FloatingActionButton(
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => (AnswerManager())),
+                        );
+                      },
+                      backgroundColor: Colors.indigo,
+                      child: const Icon(Icons.home),
+                    )
+                  ],
+                )
+            ),
+            SizedBox(height: 20.0,)
           ],
         ),
       ),
+      /*
       floatingActionButton: FloatingActionButton(
         onPressed: ()=>  showDialog (                               // REMOVE THE SHOW DIALOG
             context: context,
@@ -147,7 +177,7 @@ class _QuestionState extends State<QuestionHome> {
         child: new Icon(Icons.add),
         backgroundColor: Colors.indigo,
       ),
-
+      */
     ),
   );
 }
