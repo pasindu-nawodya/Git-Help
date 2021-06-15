@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:githelp/component/card/card.dart';
 import 'package:githelp/component/header/header.dart';
+import 'package:githelp/screen/guide/guide.dart';
 
 import '../../constant.dart';
 
@@ -15,7 +16,11 @@ class _HomeState extends State<Home> {
   final controller = ScrollController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(
+        onWillPop: () {
+      return new Future(() => false);
+    },
+    child:  Scaffold(
       body: SingleChildScrollView(
         controller: controller,
         child: Column(
@@ -25,7 +30,11 @@ class _HomeState extends State<Home> {
               textTop: "Let's Learn Git",
               textBottom: "Step By Step",
               offset: 10.0,
+              heights: 350.0,
+              topVal: 80.0,
+              leftVal: 10.0,
             ),
+            Text("Select Your Path", style: kTitleTextstyle),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
@@ -37,12 +46,14 @@ class _HomeState extends State<Home> {
                     "Click here to learn git step by step. All the command, description and examples are there.",
                     image: "assets/images/guide.png",
                     title: "GIT Guide",
+                    widget: GuideList(),
                   ),
                   CardView(
                     text:
                     "Click here if you have any doubt or problem related to GIT. Just post here or share your knowledge with others.",
                     image: "assets/images/que.png",
                     title: "Q & A Section",
+
                   ),
                   SizedBox(height: 50),
                 ],
@@ -51,8 +62,7 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
+    ),
     );
   }
 }
-
-
