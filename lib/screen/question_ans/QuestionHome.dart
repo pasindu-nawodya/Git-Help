@@ -59,7 +59,7 @@ class _QuestionState extends State<QuestionHome> {
   //-----------------------------------------------------------------------------------------------------
   // <summary> Delete Question </summary>                         // NEED TO FIND THE ID / STRING OF SELECTING CARD
   deleteQuestion() async{
-    await firestoreInstance.collection("question").where("question",isEqualTo : "What is GitHub ?").get().then((value){
+    await firestoreInstance.collection("question").where("question",isEqualTo : "What is a branch ?").get().then((value){
       value.docs.forEach((element) {
         FirebaseFirestore.instance.collection("question").doc(element.id).delete().then((value){
           print("Question Removed");

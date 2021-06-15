@@ -6,6 +6,8 @@
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/615eed2da018d71ed0907a1695bc0d69/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/615eed2da018d71ed0907a1695bc0d69/app.dill" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/615eed2da018d71ed0907a1695bc0d69/debug_android_application.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/615eed2da018d71ed0907a1695bc0d69/debug_android_application.stamp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/615eed2da018d71ed0907a1695bc0d69/flutter_assets.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/615eed2da018d71ed0907a1695bc0d69/flutter_assets.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/615eed2da018d71ed0907a1695bc0d69/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/615eed2da018d71ed0907a1695bc0d69/kernel_snapshot.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/615eed2da018d71ed0907a1695bc0d69/kernel_snapshot.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/615eed2da018d71ed0907a1695bc0d69/kernel_snapshot.stamp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" afterDir="false" />
@@ -18,8 +20,6 @@
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/cache.dill.track.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screen/question_ans/Answer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/question_ans/Answer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screen/question_ans/AnswerHome.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/question_ans/AnswerManager.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screen/question_ans/QuestionHome.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/question_ans/QuestionHome.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/screen/question_ans/QuestionHome.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="63" column="50" selection-start-line="63" selection-start-column="50" selection-end-line="63" selection-end-column="50" />
+            <state relative-caret-position="330">
+              <caret line="146" column="21" selection-start-line="146" selection-start-column="21" selection-end-line="146" selection-end-column="21" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -70,7 +70,7 @@
         <entry file="file://$PROJECT_DIR$/lib/screen/question_ans/Answer.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="304">
-              <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -100,12 +100,12 @@
         <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/screen/question_ans/AnswerHome.dart" />
         <option value="$PROJECT_DIR$/lib/screen/question_ans/Answer.dart" />
-        <option value="$PROJECT_DIR$/lib/screen/question_ans/QuestionHome.dart" />
         <option value="$PROJECT_DIR$/lib/screen/question_ans/AnswerManager.dart" />
+        <option value="$PROJECT_DIR$/lib/screen/question_ans/QuestionHome.dart" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="676" />
     <option name="width" value="697" />
     <option name="height" value="735" />
@@ -214,7 +214,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.1988273" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.1988273" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -223,7 +223,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Find" weight="0.32936078" />
       <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.23726977" />
-      <window_info anchor="bottom" id="Run" order="1" visible="true" weight="0.28602383" />
+      <window_info anchor="bottom" id="Run" order="1" weight="0.28602383" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39761648" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.24052005" />
@@ -419,7 +419,7 @@
     <entry file="file://$PROJECT_DIR$/lib/screen/question_ans/Answer.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
-          <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -438,8 +438,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/screen/question_ans/QuestionHome.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="63" column="50" selection-start-line="63" selection-start-column="50" selection-end-line="63" selection-end-column="50" />
+        <state relative-caret-position="330">
+          <caret line="146" column="21" selection-start-line="146" selection-start-column="21" selection-end-line="146" selection-end-column="21" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
