@@ -18,8 +18,7 @@ class _AddPostState extends State<AddPost> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  Future<void> addUser() {
-    // Call the user's CollectionReference to add a new user
+  Future<void> addPost() {
     return post
         .add({
       'topic': _topic,
@@ -27,7 +26,15 @@ class _AddPostState extends State<AddPost> {
       'step': _step ,
       'command' : _command
     })
-        .then((value) => print("Post Added"))
+
+        .then((value) => {
+          print("Post Added"),
+        Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => (GuideList())),
+    )
+        })
+        // ignore: return_of_invalid_type_from_catch_error
         .catchError((error) => print(error));
   }
 
@@ -215,7 +222,7 @@ class _AddPostState extends State<AddPost> {
                           ),
                           // ignore: deprecated_member_use
                           RaisedButton(
-                            onPressed: addUser,
+                            onPressed: addPost,
                             padding: EdgeInsets.only(
                                 right: 80.0, left: 80.0, top: 10.0, bottom: 10.0),
                             child: Text(

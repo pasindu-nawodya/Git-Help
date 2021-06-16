@@ -54,7 +54,7 @@ class _HomeState extends State<Home> {
                     "Click here if you have any doubt or problem related to GIT. Just post here or share your knowledge with others.",
                     image: "assets/images/que.png",
                     title: "Q & A Section",
-                    widget: QuestionHome(),                            // navigate to Q n A section
+                    widget: QuestionHome(),
                   ),
                   SizedBox(height: 50),
                 ],

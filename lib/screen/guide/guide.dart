@@ -1,10 +1,14 @@
-import 'dart:convert';
 
+import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:githelp/component/header/header.dart';
 import 'package:githelp/component/topic-card/topic-card.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:githelp/component/header/header.dart';
+import 'package:githelp/component/topic-card/topic-card.dart';
+import 'package:githelp/loading-screen/loading-screen.dart';
 import 'package:githelp/screen/home/home.dart';
 import 'package:githelp/screen/post/addpost.dart';
 import 'package:githelp/screen/post/post.dart';
@@ -77,7 +81,7 @@ class _GuideListState extends State<GuideList> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child:
-              loading ? Text("Data is Loading") : Column (
+              loading ? LoadingScreen() : Column (
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   ListView.builder(
