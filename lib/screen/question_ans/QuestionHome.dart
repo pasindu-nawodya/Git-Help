@@ -1,12 +1,9 @@
-import 'dart:convert';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:githelp/component/header/header.dart';
 import 'package:githelp/component/topic-card/topic-card.dart';
 
-import './widgets/AskQuestionDialogWidget.dart';
 import 'package:provider/provider.dart';
 import '../../provider/Questions.dart';
 import './Question.dart';
