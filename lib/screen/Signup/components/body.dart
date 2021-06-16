@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:githelp/screen/Login/login_screen.dart';
 import 'package:githelp/screen/Signup/components/background.dart';
@@ -9,7 +8,6 @@ import 'package:githelp/component/rounded_button.dart';
 import 'package:githelp/component/rounded_input_field.dart';
 import 'package:githelp/component/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:githelp/screen/home/home.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 
@@ -32,15 +30,15 @@ class _BodyState extends State<Body> {
     // Call the user's CollectionReference to add a new user
     return post
         .add({
-      'email': _email,
-      'password': _password,
-    })
+          'email': _email,
+          'password': _password,
+        })
         .then((value) => {
-      print("Account Added"),
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => (LoginScreen())),
-      )
+          print("Account Added"),
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => (LoginScreen())),
+        )
     })
     // ignore: return_of_invalid_type_from_catch_error
         .catchError((error) => print(error));
@@ -65,20 +63,14 @@ class _BodyState extends State<Body> {
         });
   }
 
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    onPressedSignUp(){
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => (Home())),
-      );
-    }
-    return Background(
+    @override
+    Widget build(BuildContext context) {
+      Size size = MediaQuery.of(context).size;
+      return Background(
       child:Form(
-        //key: _formKey,
-      child: SingleChildScrollView(
-        child: Column(
+        key: _formKey,
+        child: SingleChildScrollView(
+          child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
@@ -98,25 +90,29 @@ class _BodyState extends State<Body> {
                   _email = val;
                 });
               },
-
             ),
+
             RoundedPasswordField(
                 onChanged: (String val){
                   setState(() {
-                    _email = val;
+                    _password = val;
                   });
                 },
             ),
+
             RoundedButton(
               text: "SIGNUP",
               press: () {
-                //please add your implementation to below method
-                // it is define in top of the class
-                //pasindu
-                onPressedSignUp();
+                addPost();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => (LoginScreen())),
+                );
               },
             ),
+
             SizedBox(height: size.height * 0.03),
+
             AlreadyHaveAnAccountCheck(
               login: false,
               press: () {
@@ -147,13 +143,12 @@ class _BodyState extends State<Body> {
                   press: () {},
                 ),
               ],
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
-      ),
     );
-        // return Container();
   }
 }
 

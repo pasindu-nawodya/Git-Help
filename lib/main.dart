@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
             body1: TextStyle(color: kBodyTextColor),
           )),
       home: MyHomePage(title: 'Git Helper for Beginners'),
+
     );
   }
 }
