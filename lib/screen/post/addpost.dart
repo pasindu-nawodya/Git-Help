@@ -19,7 +19,6 @@ class _AddPostState extends State<AddPost> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   Future<void> addPost() {
-    // Call the user's CollectionReference to add a new user
     return post
         .add({
       'topic': _topic,
@@ -27,6 +26,7 @@ class _AddPostState extends State<AddPost> {
       'step': _step ,
       'command' : _command
     })
+
         .then((value) => {
           print("Post Added"),
         Navigator.push(
@@ -36,7 +36,6 @@ class _AddPostState extends State<AddPost> {
         })
         // ignore: return_of_invalid_type_from_catch_error
         .catchError((error) => print(error));
-
   }
 
   showError(String errormessage) {

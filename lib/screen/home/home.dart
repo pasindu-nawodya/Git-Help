@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:githelp/component/card/card.dart';
 import 'package:githelp/component/header/header.dart';
 import 'package:githelp/screen/guide/guide.dart';
+import 'package:githelp/screen/question_ans/QuestionHome.dart';                   // question and answer section
 
 import '../../constant.dart';
 
@@ -53,7 +54,7 @@ class _HomeState extends State<Home> {
                     "Click here if you have any doubt or problem related to GIT. Just post here or share your knowledge with others.",
                     image: "assets/images/que.png",
                     title: "Q & A Section",
-
+                    widget: QuestionHome(),
                   ),
                   SizedBox(height: 50),
                 ],
