@@ -3,7 +3,15 @@ import 'dart:async';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:githelp/constant.dart';
+
+import 'package:githelp/screen/guide/guide.dart';
+import 'package:githelp/screen/home/home.dart';
+import 'package:githelp/screen/post/addpost.dart';
+import 'package:githelp/screen/post/post.dart';
+
+
 import 'package:githelp/screen/Welcome/welcome_screen.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -36,11 +44,21 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  bool _initialized = false;
+  bool _error = false;
+
 
   void initializeFlutterFire() async {
     try {
       await Firebase.initializeApp();
       setState(() {
+
+        _initialized = true;
+      });
+    } catch (e) {
+      setState(() {
+        _error = true;
+
       });
     } catch (e) {
       setState(() {
@@ -52,6 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     initializeFlutterFire();
     Timer(
+
         Duration(seconds: 1),
             () => Navigator.push(
             context, MaterialPageRoute(builder: (context) => WelcomeScreen())));

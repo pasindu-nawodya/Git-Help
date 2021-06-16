@@ -4,7 +4,7 @@ import 'package:githelp/component/command/command.dart';
 import 'package:githelp/component/header/header.dart';
 import 'package:githelp/screen/guide/guide.dart';
 
-// ignore: must_be_immutable
+
 class Post extends StatefulWidget {
   String title;
   String desc;
