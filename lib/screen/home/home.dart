@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:githelp/component/card/card.dart';
 import 'package:githelp/component/header/header.dart';
+import 'package:githelp/screen/Profile/profile_screen.dart';
 import 'package:githelp/screen/guide/guide.dart';
 import 'package:githelp/screen/question_ans/QuestionHome.dart';                   // question and answer section
 
@@ -49,6 +50,7 @@ class _HomeState extends State<Home> {
                     title: "GIT Guide",
                     widget: GuideList(),
                   ),
+
                   CardView(
                     text:
                     "Click here if you have any doubt or problem related to GIT. Just post here or share your knowledge with others.",
@@ -56,7 +58,38 @@ class _HomeState extends State<Home> {
                     title: "Q & A Section",
                     widget: QuestionHome(),
                   ),
+                  SizedBox(height: 10),
+                  Align(
+                      alignment: Alignment(0.9, 0.5),
+                      child: Row(
+                        children: <Widget>[
+                          SizedBox(width: 230.0,),
+                          FloatingActionButton(
+                            onPressed: (){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => (Home())),
+                              );
+                            },
+                            backgroundColor: Colors.indigo,
+                            child: const Icon(Icons.details),
+                          ),
+                          SizedBox(width: 10.0,),
+                          FloatingActionButton(
+                            onPressed: (){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => (ProfileScreen())),
+                              );
+                            },
+                            backgroundColor: Colors.indigo,
+                            child: const Icon(Icons.account_box),
+                          )
+                        ],
+                      )
+                  ),
                   SizedBox(height: 50),
+
                 ],
               ),
             )

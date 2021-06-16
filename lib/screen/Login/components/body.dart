@@ -8,11 +8,14 @@ import 'package:githelp/component/rounded_input_field.dart';
 import 'package:githelp/component/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:githelp/screen/home/home.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class Body extends StatelessWidget {
-  const Body({
-    Key key,
-  }) : super(key: key);
+class Body extends StatefulWidget {
+
+  @override
+  _BodyState createState() => _BodyState();
+}
+class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
@@ -71,3 +74,5 @@ class Body extends StatelessWidget {
     );
   }
 }
+
+
